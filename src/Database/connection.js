@@ -1,10 +1,10 @@
 import sql from "mssql";
 
 const dbSettings = {
-  user: "sa",
-  password: "Adminsa1234",
-  server: "servapolo",
-  database: "SisMed",
+  user: process.env.USER,
+  password: process.env.PASSWORD,
+  server: process.env.SERVER,
+  database: process.env.DATABASE,
   port: 1433,
   options: {
     encrypt: false,
