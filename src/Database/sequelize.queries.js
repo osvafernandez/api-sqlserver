@@ -1,0 +1,25 @@
+export const sequelizeQueries = {
+  selectAll: {
+    attributes: [
+      "noSerieInventario",
+      "idTipoInstrumento",
+      "idArea",
+      "rangoMax",
+      "rangoMin",
+      "marcaModelo",
+      "claseoVd",
+      "fechaCalibracion",
+      "noCert",
+      "estado",
+      "ubicacion",
+      "valorMaxTrabajo",
+      "conexionProceso",
+      "fechaProximaCalibracion",
+      "diametroCaja",
+      "longitudInmercion",
+      "Comentarios",
+      "usuario",
+      "baja",
+    ],
+  },
+};

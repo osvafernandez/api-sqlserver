@@ -3,6 +3,6 @@ import { Router } from "express";
 
 const router = Router();
 
-router.get("/seq/inst", getInst);
+router.get("/seq", getInst);
 
 export default router;

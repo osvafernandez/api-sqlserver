@@ -10,16 +10,16 @@ import {
 
 const router = Router();
 
-router.get("/instruments", getInstrument);
+router.get("/api/instruments", getInstrument);
 
-router.get("/instrument/:id", getInstrumentById);
+router.get("/api/instrument/:id", getInstrumentById);
 
-router.post("/instrument", createNewInstrument);
+router.post("/api/instrument", createNewInstrument);
 
-router.post("/instruments", getAmountInstrumnet);
+router.post("/api/instruments", getAmountInstrumnet);
 
-router.delete("/instrument/:id", deleteInstrumentById);
+router.delete("/api/instrument/:id", deleteInstrumentById);
 
-router.put("/instrument/", updateInstrumnet);
+router.put("/api/instrument/", updateInstrumnet);
 
 export default router;

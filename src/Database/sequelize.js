@@ -15,10 +15,32 @@ const sequelize = new Sequelize(
   }
 );
 
-export const instrumentModel = sequelize.define("Instrumento", {
-  noSerieInventario: { type: DataTypes.STRING, primaryKey: true },
-  idTipoInstrumento: { type: DataTypes.INTEGER, primaryKey: true },
-  idArea: DataTypes.INTEGER,
-});
+export const instrumentModel = sequelize.define(
+  "Instrumento",
+  {
+    noSerieInventario: { type: DataTypes.STRING, primaryKey: true },
+    idTipoInstrumento: { type: DataTypes.INTEGER, primaryKey: true },
+    idArea: DataTypes.INTEGER,
+    rangoMax: DataTypes.STRING,
+    rangoMin: DataTypes.STRING,
+    marcaModelo: DataTypes.STRING,
+    claseoVd: DataTypes.STRING,
+    fechaCalibracion: DataTypes.DATE,
+    noCert: DataTypes.STRING,
+    estado: DataTypes.STRING,
+    ubicacion: DataTypes.STRING,
+    valorMaxTrabajo: DataTypes.STRING,
+    conexionProceso: DataTypes.STRING,
+    fechaProximaCalibracion: DataTypes.DATE,
+    diametroCaja: DataTypes.STRING,
+    longitudInmercion: DataTypes.STRING,
+    Comentarios: DataTypes.STRING,
+    usuario: DataTypes.STRING,
+    baja: DataTypes.BOOLEAN,
+  },
+  {
+    freezeTableName: true,
+  }
+);
 
 export default sequelize;
