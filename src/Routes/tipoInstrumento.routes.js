@@ -3,7 +3,7 @@ import { getTipoInstrument } from "../controllers/tipoInstrumento.controllers.js
 
 const router = Router();
 
-router.get("/tipoInstrumento", getTipoInstrument);
+router.get("/api/tipoInstrumento", getTipoInstrument);
 
 router.post("/instrument");
 

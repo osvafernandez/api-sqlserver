@@ -9,4 +9,6 @@ export const queries = {
   getAmountInstrumnet: "Select Count(*) FROM dbo.Instrumento",
   updateInstrument:
     "UPDATE Instrumento SET idTipoInstrumento=@idTipoInstrumento,idArea=@idArea,rangoMax=@rangoMax,rangoMin=@rangoMin,marcaModelo=@marcaModelo,claseoVd=@claseoVd,fechaCalibracion=@fechaCalibracion,noCert=@noCert,estado=@estado,ubicacion=@ubicacion,valorMaxTrabajo=@valorMaxTrabajo,conexionProceso=@conexionProceso,fechaProximaCalibracion=@fechaProximaCalibracion,diametroCaja=@diametroCaja,longitudInmercion=@longitudInmercion,Comentarios=@Comentarios,usuario=@usuario,baja=@baja WHERE noSerieInventario = @noSerieInventario",
+  getAreasById:
+    "SELECT idArea,nombre,areaPadre,activa FROM areas where idArea = @id",
 };

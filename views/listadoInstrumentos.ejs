@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sismed - Sistema de Medición</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../public/css/styles.css" />
+  </head>
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+      <div class="container d-flex align-items-center">
+        <h1 class="logo me-auto"><a href="/SisMed/">SisMed</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html" class="logo me-auto"><img src="~/img/logo.png" alt="" class="img-fluid"></a>-->
+
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li class="dropdown">
+              <a href="#"
+                ><span>Instrumentos</span> <i class="bi bi-chevron-down"></i
+              ></a>
+              <ul>
+                <li>
+                  <a href="/sismed/listadoInstrumentosxAreas"
+                    >Listado de Instrumentos x &Aacute;reas</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/SisMed/TiposInstrumentos/ListaTiposInstrumentos"
+                    title="Debe ser administrador del Sistema"
+                    >Tipos de Instrumentos</a
+                  >
+                </li>
+                <li><a href="#">Reportes</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#"
+                ><span>Tanques</span> <i class="bi bi-chevron-down"></i
+              ></a>
+              <ul>
+                <li><a href="/SisMed/Tanques">Listado de Tanques</a></li>
+                <li><a href="#">Reportes</a></li>
+              </ul>
+            </li>
+
+            <li>
+              <a
+                class="nav-link scrollto"
+                title="Debe ser administrador del Sistema"
+                href="/administracion"
+                >Administraci&oacute;n</a
+              >
+            </li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <a href="/SisMed/login" class="appointment-btn scrollto"
+          ><span class="d-none d-md-inline">Entrar</span></a
+        >
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <main id="main">
+      <section class="inner-page">
+        <div class="container body-content">
+          <main id="main">
+            <!-- breadcrumbs -->
+            <section class="breadcrumbs">
+              <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                  <h2>Listado de Instrumentos</h2>
+                  <ol>
+                    <li>
+                      <a href="/sismed">Inicio</a>
+                    </li>
+                    <li>Listado de Instrumentos</li>
+                  </ol>
+                </div>
+              </div>
+            </section>
+            <!-- end breadcrumbs -->
+            <section class="inner-page">
+              <div class="container">
+                <div class="card" id="insertarea">
+                  <div class="card-body table-responsive">
+                    <div class="text-end"></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3">
+                      <!-- areas id = 0 section -->
+                      <% areas.forEach( res =>{ %> <% if (res.activa==1 &&
+                      res.areaPadre==0 && res.idArea!==0) { %>
+                      <h5 class="p-3"><%= res.nombre %></h5>
+                      <% } %> <% }) %>
+                      <!-- end of areas = 0 section -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </main>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

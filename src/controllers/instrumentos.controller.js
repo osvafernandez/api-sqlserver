@@ -9,13 +9,14 @@ export const getInstrument = async (req, res) => {
       .request()
       .query(`${queries.getInstrumentsNAreas}`);
     const records = result.recordset;
-    res.send(records);
+    res.json(records);
   } catch (error) {
     res.status(500);
     res.send(error.message);
   }
 };
 
+// post: /api/instrument
 export const createNewInstrument = async (req, res) => {
   const result = schemaInstrument.validate(req.body);
   if (result.error) {
@@ -89,7 +90,7 @@ export const getInstrumentById = async (req, res) => {
       .request()
       .input("id", sql.VarChar, id)
       .query(`${queries.getById}`);
-    res.send(result.recordset);
+    res.json(result.recordset);
   } catch (error) {
     res.status(500);
     res.send(error.message);
@@ -101,6 +102,24 @@ export const getAmountInstrumnet = async (req, res) => {
     const pool = await getConnection();
     const result = await pool.request().query(`${queries.getAmountInstrumnet}`);
     res.send(result.recordset[0]);
+  } catch (error) {
+    res.status(500);
+    res.send(error.message);
+  }
+};
+
+export const getInstrumentByArea = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const pool = await getConnection();
+    const result = await pool
+      .request()
+      .input("id", sql.VarChar, id)
+      .query(
+        "SELECT noSerieInventario,denominacion,nombre as Area,rangoMax,rangoMin,marcaModelo,claseoVd,fechaCalibracion,noCert,estado,ubicacion,Instrumento.valorMaxTrabajo,conexionProceso,fechaProximaCalibracion,diametroCaja,longitudInmercion,Comentarios,usuario,baja FROM (([dbo].[Instrumento] Inner Join [dbo].[areas] on Instrumento.idArea = areas.idArea) Inner Join [dbo].[TipoInstrumento] on Instrumento.idTipoInstrumento = TipoInstrumento.idTipoInstrumento) where Instrumento.idArea = @id"
+      );
+    console.log(result);
+    res.json(result.recordset[0]);
   } catch (error) {
     res.status(500);
     res.send(error.message);

@@ -1,14 +1,25 @@
-export const home = (req, res) => {
-  res.render("home");
+import app from "../app.js";
+import { api_key } from "../config.js";
+
+export const defaultRoute = (req, res) => {
+  res.redirect("/sismed");
+  console.log(`GET / redirect to /sismed`);
 };
 
-export const tableData = async (req, res) => {
-  const result = await fetch("http://localhost:3500/api/instruments")
+export const home = (req, res) => {
+  res.render("home");
+  console.log(`GET /sismed`);
+};
+
+export const listadoInstrumentosxAreas = async (req, res) => {
+  const areas = await fetch(
+    `http://localhost:${app.get("port")}/api/${api_key}/areas`
+  )
     .then((response) => response.json())
     .catch((err) => {
       console.error(err);
     });
-  res.render("tableData", { result: result });
+  res.render("listadoInstrumentos", { areas: areas });
 };
 
 export const administracion = async (req, res) => {
@@ -17,9 +28,10 @@ export const administracion = async (req, res) => {
 
 export const login = async (req, res) => {
   res.render("login");
+  console.log(`GET /sismed/login`);
 };
 
 export const checkLoginCredentials = (req, res) => {
   console.log(req.body.username, req.body.password);
-  res.render("login");
+  res.redirect("login");
 };

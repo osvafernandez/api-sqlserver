@@ -1,7 +1,8 @@
 import { Router } from "express";
 import {
+  defaultRoute,
   home,
-  tableData,
+  listadoInstrumentosxAreas,
   administracion,
   login,
   checkLoginCredentials,
@@ -9,14 +10,16 @@ import {
 
 const router = Router();
 
-router.get("/SisMed", home);
+router.get("/", defaultRoute);
 
-router.get("/SisMed/dataTable", tableData);
+router.get("/sismed", home);
 
-router.get("/SisMed/administracion", administracion);
+router.get("/sismed/listadoInstrumentosxAreas", listadoInstrumentosxAreas);
 
-router.get("/SisMed/login", login);
+router.get("/sismed/administracion", administracion);
 
-router.post("/SisMed/login", checkLoginCredentials);
+router.get("/sismed/login", login);
+
+router.post("/sismed/login", checkLoginCredentials);
 
 export default router;

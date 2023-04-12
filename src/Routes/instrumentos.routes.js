@@ -6,15 +6,20 @@ import {
   deleteInstrumentById,
   getAmountInstrumnet,
   updateInstrumnet,
+  getInstrumentByArea,
 } from "../controllers/instrumentos.controller.js";
+import { api_key } from "../config.js";
 
 const router = Router();
+//const api_key = process.env.api_key;
 
-router.get("/api/instruments", getInstrument);
+router.get(`/api/${api_key}/instruments`, getInstrument);
 
-router.get("/api/instrument/:id", getInstrumentById);
+router.get(`/api/${api_key}/instrument/:id`, getInstrumentById);
 
-router.post("/api/instrument", createNewInstrument);
+router.get(`/api/${api_key}/instrument/area/:idArea`, getInstrumentByArea);
+
+router.post(`/api/${api_key}/instrument`, createNewInstrument);
 
 router.post("/api/instruments", getAmountInstrumnet);
 

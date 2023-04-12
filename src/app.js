@@ -10,6 +10,7 @@ const app = express();
 
 //settings
 app.set("port", config.port);
+app.set("api_key", config.api_key);
 
 //midlewares
 app.use(express.json());
